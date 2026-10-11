@@ -1,0 +1,17 @@
+{
+  "name": "universalmods",
+  "owner": { "name": "Samridh Anand", "url": "https://github.com/samridh3215" },
+  "metadata": { "description": "universalMods: run a team of coding agents in live terminals. Mod everything." },
+  "plugins": [
+    {
+      "name": "universalmods",
+      "source": "./",
+      "description": "Skill to install, run and drive a universalMods floor and to write universalMods mods.",
+      "version": "0.3.0",
+      "license": "MIT",
+      "homepage": "https://samridh3215.github.io/universalMods/",
+      "repository": "https://github.com/samridh3215/universalMods",
+      "keywords": ["multi-agent", "agent-orchestration", "codex", "claude-code", "mods"]
+    }
+  ]
+}

@@ -7,6 +7,7 @@ Cut a release with `npm run release -- <patch|minor|major>`; pushing the tag pub
 ## [Unreleased]
 
 ### Added
+- Installable plugin: `.codex-plugin/plugin.json`, `.claude-plugin/plugin.json` + `marketplace.json`, and a `universalmods` skill for installing, running and driving a floor and writing mods.
 - Six new built-in layouts: `mission`, `deepdive`, `dashboard`, `planner`, `arcade`, `zen` (with screenshots in `docs/screenshots/layouts/`).
 - Launch kit: demo video (`marketing/video/`, re-renderable), brand images and naming report (`marketing/brand/`), new README hero and OG image.
 

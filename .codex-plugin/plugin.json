@@ -1,0 +1,47 @@
+{
+  "name": "universalmods",
+  "version": "0.3.0",
+  "description": "Local web floor that runs a team of Codex or Claude Code agents in live terminals, with a master orchestrator and Claude-Code-style hot-reloading mods. This plugin adds a skill to install, run and drive a floor and to write mods.",
+  "author": {
+    "name": "Samridh Anand",
+    "url": "https://github.com/samridh3215"
+  },
+  "homepage": "https://samridh3215.github.io/universalMods/",
+  "repository": "https://github.com/samridh3215/universalMods",
+  "license": "MIT",
+  "keywords": [
+    "multi-agent",
+    "agent-orchestration",
+    "codex",
+    "claude-code",
+    "mods",
+    "terminal",
+    "developer-tools"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "universalMods",
+    "shortDescription": "Run a team of coding agents in live terminals. Mod everything.",
+    "longDescription": "universalMods is a local web floor where a master Orchestrator plans and delegates to Codex or Claude Code agents, each running its real CLI in a live browser terminal, sharing a kanban, plan board and messages. Every view, guard and agent tool is a hot-reloading mod. The bundled skill helps your agent install and start a floor, drive it over its HTTP API, and write mods.",
+    "developerName": "Samridh Anand",
+    "category": "Coding",
+    "websiteURL": "https://samridh3215.github.io/universalMods/",
+    "defaultPrompt": [
+      "Set up universalMods in this machine and start a Claude floor.",
+      "Write a universalMods mod that shows tokens per agent as a bar chart."
+    ],
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "screenshots": [
+      "./assets/screenshot-floor.png",
+      "./assets/screenshot-mission.png"
+    ],
+    "privacyPolicyURL": "https://github.com/samridh3215/universalMods/blob/main/SECURITY.md",
+    "termsOfServiceURL": "https://github.com/samridh3215/universalMods/blob/main/LICENSE"
+  }
+}

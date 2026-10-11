@@ -61,6 +61,14 @@ Requirements:
 - `claude` (Claude Code), logged in.
 - Or `codex` (`npm i -g @openai/codex && codex login`).
 
+
+### Install the agent skill (optional)
+
+universalMods also ships as a plugin with a `universalmods` skill that teaches your coding agent to install and start a floor, drive it over its HTTP API, and write mods:
+
+- **Claude Code:** `/plugin install universalmods --marketplace samridh3215/universalMods`
+- **Codex:** the plugin manifest is at [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) (skill in [`skills/universalmods`](skills/universalmods/SKILL.md)).
+
 ## What you get
 
 | Feature | Details |
