@@ -339,12 +339,32 @@ cd universalMods && npm install</pre></div></div>
 
         // Fade sections and cards in as they scroll into view.
         document.querySelectorAll('section h2, section .sub, .card, .step, .split > *, table').forEach((el, i) => el.classList.add('reveal'));
-        const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach((el) => {
+        // Reveal when in view. Fail safe: a scroll check backs up the observer, and
+        // everything is revealed after a moment so content can never stay hidden.
+        const reveals = [...document.querySelectorAll('.reveal')];
+        reveals.forEach((el) => {
           const sib = el.parentElement ? [...el.parentElement.children].filter((c) => c.classList.contains('reveal')).indexOf(el) : 0;
           el.style.transitionDelay = Math.min(sib, 6) * 60 + 'ms';
-          io.observe(el);
         });
+        const check = () => reveals.forEach((el) => { if (!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight * 0.92) el.classList.add('in'); });
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.05 });
+          reveals.forEach((el) => io.observe(el));
+        }
+        addEventListener('scroll', check, { passive: true });
+        addEventListener('resize', check);
+        requestAnimationFrame(check);
+        setTimeout(() => reveals.forEach((el) => el.classList.add('in')), 2500);
+
+        // Muted autoplay can be refused (e.g. power saving); retry when the video is on screen.
+        const vid = document.querySelector('.video-shot video');
+        if (vid && !reduce) {
+          vid.muted = true;
+          const tryPlay = () => vid.paused && vid.play().catch(() => {});
+          tryPlay();
+          addEventListener('scroll', tryPlay, { passive: true, once: true });
+          addEventListener('pointerdown', tryPlay, { once: true });
+        }
 
         // Built-in layouts: tabs + crossfading screenshots + a wireframe that morphs between pane shapes.
         const L = [
@@ -391,7 +411,7 @@ cd universalMods && npm install</pre></div></div>
         }
         bar.addEventListener('animationend', () => { show((cur + 1) % L.length); restart(); });
         show(0);
-        new IntersectionObserver(([e]) => { if (e.isIntersecting) restart(); else bar.classList.remove('run'); }, { threshold: 0.25 }).observe(stage);
+        restart();
       })();
     </script>
   </body>
