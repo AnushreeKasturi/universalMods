@@ -120,17 +120,11 @@ const PRESETS: Record<string, Layout> = {
     { id: 'zen-m', size: 3, panes: [{ id: 'zen-term', view: 'grid', params: { mode: 'tabs' } }] },
     { id: 'zen-r', panes: [{ id: 'zen-timeline', view: 'timeline', collapsed: true }] },
   ],
-  // Code review: an agent's live terminal to read its work, with what it did and the shared board for review notes.
+  // Code review: an agent's live terminal, the changes it made (Diff), and what it did (timeline).
   review: [
-    { id: 'rv-a', size: 1.6, panes: [{ id: 'rv-term', view: 'grid', params: { mode: 'tabs' } }] },
-    {
-      id: 'rv-b',
-      size: 1,
-      panes: [
-        { id: 'rv-timeline', view: 'timeline', size: 1.2 },
-        { id: 'rv-board', view: 'board', size: 1 },
-      ],
-    },
+    { id: 'rv-a', size: 1.4, panes: [{ id: 'rv-term', view: 'grid', params: { mode: 'tabs' } }] },
+    { id: 'rv-b', size: 1.2, panes: [{ id: 'rv-diff', view: 'diff' }] },
+    { id: 'rv-c', size: 1, panes: [{ id: 'rv-timeline', view: 'timeline' }] },
   ],
 };
 
