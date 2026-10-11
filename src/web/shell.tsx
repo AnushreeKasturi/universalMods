@@ -120,6 +120,18 @@ const PRESETS: Record<string, Layout> = {
     { id: 'zen-m', size: 3, panes: [{ id: 'zen-term', view: 'grid', params: { mode: 'tabs' } }] },
     { id: 'zen-r', panes: [{ id: 'zen-timeline', view: 'timeline', collapsed: true }] },
   ],
+  // Code review: an agent's live terminal to read its work, with what it did and the shared board for review notes.
+  review: [
+    { id: 'rv-a', size: 1.6, panes: [{ id: 'rv-term', view: 'grid', params: { mode: 'tabs' } }] },
+    {
+      id: 'rv-b',
+      size: 1,
+      panes: [
+        { id: 'rv-timeline', view: 'timeline', size: 1.2 },
+        { id: 'rv-board', view: 'board', size: 1 },
+      ],
+    },
+  ],
 };
 
 function loadLayouts(): Record<string, Layout> {
